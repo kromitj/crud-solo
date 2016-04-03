@@ -41,3 +41,7 @@ end
   Attendee.create(user_id: user, ticket_id: ticket)
 end
 
+150.times do 
+  Album.create(title: Faker::Name.title, band_id: (1..50).to_a.sample, released: nil)
+end
+
