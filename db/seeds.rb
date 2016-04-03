@@ -26,7 +26,6 @@ end
 100.times do 
   user = (1..10).to_a.sample
   ticket = (1..100).to_a.sample
-  concert = (1..10).to_a.sample
-  Attendee.create(user_id: user, ticket_id: ticket, concert_id: concert)
+  Attendee.create(user_id: user, ticket_id: ticket)
 end
 
