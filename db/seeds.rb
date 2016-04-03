@@ -11,8 +11,17 @@ venues.each_with_index do |venue, i|
 end
 genres = ['Alt','Rock','Hip-hop','Jazz','Heavy-Metal']
 
+instruments = ['guitar','bass','synth','keyboard','drums','vocals','hype-man']
+300.times do
+  Musician.create(name: Faker::Name.name, instrument: instruments.sample)
+end
+
 50.times do 
   Band.create(name: Faker::Name.title, genre: genres.sample)
+end
+
+300.times do
+  BandMember.create(musician_id: (1..300).to_a.sample, band_id: (1..50).to_a.sample)
 end
 
 10.times do
