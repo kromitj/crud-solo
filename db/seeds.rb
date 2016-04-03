@@ -9,11 +9,16 @@ location = ['minneapolis', 'La', 'New York', 'Colorado', 'Milky way']
 venues.each_with_index do |venue, i|
   Venue.create(name: venue, location: location[i], capacity: 100)
 end
+genres = ['Alt','Rock','Hip-hop','Jazz','Heavy-Metal']
+
+50.times do 
+  Band.create(name: Faker::Name.title, genre: genres.sample)
+end
 
 10.times do
-  (1..5).to_a.sample 
+  band = (1..50).to_a.sample 
   # cant't get faker to work right
-  Concert.create(concert_title: Faker::Name.name, date: nil, venue_id: (1..5).to_a.sample )
+  Concert.create(concert_title: Faker::Name.name, date: nil, venue_id: (1..5).to_a.sample, band_id: band )
 end
 
 10.times do 

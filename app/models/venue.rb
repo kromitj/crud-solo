@@ -1,6 +1,7 @@
 class Venue < ActiveRecord::Base
   has_many :concerts
   has_many :sold_tickets, through: :concerts, source: :tickets
+  has_many :bands_hosted, through: :concerts, source: :band
   has_many :attendees, through: :sold_tickets, source: :attendees
   # returns the samething as sold_tickets would like to 
   # get it to return unique instances of the levels
