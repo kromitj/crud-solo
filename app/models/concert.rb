@@ -1,4 +1,5 @@
 class Concert < ActiveRecord::Base
+  belongs_to :venue
   has_many :tickets
   has_many :attendees, through: :tickets, source: :attendees
   has_many :ticket_levels, through: :tickets, source: :ticket_level

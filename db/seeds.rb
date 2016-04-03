@@ -4,9 +4,16 @@ require 'faker'
   User.create(name: Faker::Name.name)
 end
 
-10.times do 
+venues = ['First Ave.', 'Greek Theater', 'Ed Sulliven', 'Red Rocks', 'The Moon']
+location = ['minneapolis', 'La', 'New York', 'Colorado', 'Milky way']
+venues.each_with_index do |venue, i|
+  Venue.create(name: venue, location: location[i], capacity: 100)
+end
+
+10.times do
+  (1..5).to_a.sample 
   # cant't get faker to work right
-  Concert.create(concert_title: Faker::Name.name, date: nil)
+  Concert.create(concert_title: Faker::Name.name, date: nil, venue_id: (1..5).to_a.sample )
 end
 
 10.times do 
