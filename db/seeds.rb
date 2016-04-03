@@ -45,3 +45,7 @@ end
   Album.create(title: Faker::Name.title, band_id: (1..50).to_a.sample, released: nil)
 end
 
+500.times do 
+  Song.create(title: Faker::Name.title, album_id: (1..150).to_a.sample, length: (60..300).to_a.sample)
+end
+
