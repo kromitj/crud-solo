@@ -55,6 +55,21 @@ namespace :generate do
     end
   end
 
+  desc "Create an empty views in app/views, e.g., rake generate:views NAME=users"
+  task :views do
+    puts "Creating restful views for #{ENV['NAME']} resource"
+    unless ENV.has_key?('NAME')
+      raise "Must specificy view name, e.g., rake generate:views NAME=users"
+    end
+
+    views_name = ENV['NAME']
+    views_path = APP_ROOT.join('app', 'views', views_name)
+    puts "folder made at this location..."
+    puts views_path
+     exec "mkdir #{views_path}/ #{views_name} ; cd #{views_path}; pwd; touch index.erb new.erb show.erb edit.erb"
+    
+  end
+
   desc "Create an empty model spec in spec, e.g., rake generate:spec NAME=user"
   task :spec do
     unless ENV.has_key?('NAME')

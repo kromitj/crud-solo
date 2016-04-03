@@ -1,3 +1,3 @@
 get '/' do
-  "hello"
+  erb :'/index'
 end
