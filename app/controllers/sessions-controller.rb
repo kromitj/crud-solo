@@ -7,7 +7,6 @@ post '/sessions' do
   email = params[:user][:email]
   password = params[:user][:password]
   @user = User.find_by(email: email)
-  puts @user.name
   if @user && @user.authenticate(password)
     session[:user_id] = @user.id
     redirect '/'

@@ -13,9 +13,11 @@ end
 
 venues = ['First Ave.', 'Greek Theater', 'Ed Sulliven', 'Red Rocks', 'The Moon']
 location = ['minneapolis', 'La', 'New York', 'Colorado', 'Milky way']
+
 venues.each_with_index do |venue, i|
   Venue.create(name: venue, location: location[i], capacity: 100)
 end
+
 genres = ['Alt','Rock','Hip-hop','Jazz','Heavy-Metal']
 
 instruments = ['guitar','bass','synth','keyboard','drums','vocals','hype-man']
@@ -31,10 +33,10 @@ end
   BandMember.create(musician_id: (1..300).to_a.sample, band_id: (1..50).to_a.sample)
 end
 
-10.times do
+200.times do
   band = (1..50).to_a.sample 
   # cant't get faker to work right
-  Concert.create(concert_title: Faker::Name.name, date: nil, venue_id: (1..5).to_a.sample, band_id: band )
+  Concert.create(concert_title: Faker::Team.name, date: Faker::Date.forward(365), venue_id: (1..5).to_a.sample, band_id: band )
 end
 
 10.times do 
@@ -58,7 +60,7 @@ end
 end
 
 150.times do 
-  Album.create(title: Faker::Name.title, band_id: (1..50).to_a.sample, released: nil)
+  Album.create(title: Faker::Name.title, band_id: (1..50).to_a.sample, released: Faker::Date.backward(1400))
 end
 
 500.times do 
