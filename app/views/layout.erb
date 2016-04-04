@@ -21,8 +21,19 @@
 <nav class="nav-wrapper">
   <ul class="nav-list">
     <li class="nav-li"><a href="/">Home</a></li>
-    <li class="nav-li"><a href="/users/new">Sign up</a></li>
-    <li class="nav-li"><a href="/sessions/new">Sign in</a></li>
+    <% if session[:user_id] == nil %>
+      <li class="nav-li"><a href="/users/new">Sign up</a></li>
+      <li class="nav-li"><a href="/sessions/new">Sign in</a></li>    
+    <% else %>
+      <li class="nav-li"><a href="/users/<%= @user.id %>"><%= @user.name %></a></li>
+      <li class="nav-li">
+        <form action="/session" method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Sign out">
+        </form>
+      </li>
+    <% end %>
+    
   </ul>  
 </nav>
   <%= yield %>
