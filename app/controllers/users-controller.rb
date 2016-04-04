@@ -11,7 +11,7 @@ post '/users' do
     session[:user_id] = @user.id
     redirect '/'
   else
-    erb :errors
+    redirect '/users/new'
   end
 end
 get '/users/:id' do
