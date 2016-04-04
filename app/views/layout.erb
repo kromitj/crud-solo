@@ -25,6 +25,7 @@
       <li class="nav-li"><a href="/users/new">Sign up</a></li>
       <li class="nav-li"><a href="/sessions/new">Sign in</a></li>    
     <% else %>
+      <% @user ||= User.find(session[:user_id]) %>
       <li class="nav-li"><a href="/users/<%= @user.id %>"><%= @user.name %></a></li>
       <li class="nav-li">
         <form class="logout-form" action='/sessions' method='post'>

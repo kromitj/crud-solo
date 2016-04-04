@@ -14,6 +14,13 @@ post '/users' do
     redirect '/users/new'
   end
 end
+
+get '/users/concerts' do
+  @user = User.find(session[:user_id])
+  @going_to = @user.concerts
+  erb :'users/concerts'
+end
+
 get '/users/:id' do
   @user = User.find(params[:id])
   erb :'users/show'

@@ -1,0 +1,10 @@
+<h1><%= @user.name %> is Going to These Concerts</h1>
+<% @going_to.each do |concert| %>
+ <div class="concert-item">
+    <h3>Tour Name: <%= concert.concert_title %></h3> 
+    <h3>Venue: <%= concert.venue.name %></h3>
+    <h3>Band: <%= concert.band.name %></h3>
+    <h3>Date: <%= concert.date %></h3>
+    <br>
+  </div>
+<% end %>
